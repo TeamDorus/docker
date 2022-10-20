@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  hostscanner:
+    image: teamdorus/hostscanner:0.0.x
+    container_name: hostscanner
+    restart: unless-stopped
+    volumes:
+      - /opt/docker/hostscanner:/hostscanner
+    environment:
+      - DB_HOST=192.168.1.1:8086
+      - DB_NAMES=telegraf
+      - MEASUREMENT=hoststate
+      - STATE_TAG=state
+      - CRON=* * * * *
+      - TZ=Europe/Amsterdam
+      - DEBUG=1
