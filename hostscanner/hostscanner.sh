@@ -26,7 +26,7 @@ for DB_NAME in $DB_NAMES; do
 
     # Execute nmap and convert output to JSON format (-v option necessary for offline host info)
     if [ $DEBUG -gt 2 ]; then 
-        nmap -v -sn -oX $XML_FILE -iL $IP_FILE
+        nmap -v -sn -R -oX $XML_FILE -iL $IP_FILE
         echo -e "\n"
     else
         nmap -v -sn -oX $XML_FILE -iL $IP_FILE > /dev/null
