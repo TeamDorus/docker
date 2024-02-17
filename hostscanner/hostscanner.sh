@@ -29,7 +29,7 @@ for DB_NAME in $DB_NAMES; do
         nmap -v -sn -R -oX $XML_FILE -iL $IP_FILE
         echo -e "\n"
     else
-        nmap -v -sn -oX $XML_FILE -iL $IP_FILE > /dev/null
+        nmap -v -sn -R -oX $XML_FILE -iL $IP_FILE > /dev/null
     fi
     python2 /opt/xml2json.py $XML_FILE > $JSON_FILE
 
